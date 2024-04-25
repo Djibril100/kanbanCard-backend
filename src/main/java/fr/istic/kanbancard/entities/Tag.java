@@ -20,7 +20,6 @@ public class Tag {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String label;
-	private String couleur;
 	
 	@ManyToMany(mappedBy = "tags")
     private List<Ticket> tickets;

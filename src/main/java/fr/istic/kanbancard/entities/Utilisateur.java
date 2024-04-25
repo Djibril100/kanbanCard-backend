@@ -33,13 +33,7 @@ public class Utilisateur {
 	@OneToMany(mappedBy = "utilisateur")
 	private List<Commentaire> commentaires;
 
-	// Liste des tickets affectés à l'utilisateur pour travailler
-    @ManyToMany(mappedBy = "utilisateurs")
+	// Liste des tickets d'un utilisateur
+	@OneToMany(mappedBy = "utilisateur")
     private List<Ticket> tickets;
-    
-    //Liste pour suivre tous les deplacements effectues par un collaborateur
-    @OneToMany(mappedBy = "utilisateur")
-    private List<DeplacementTicket> ticketDeplaces;
-
-
 }

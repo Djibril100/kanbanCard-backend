@@ -22,8 +22,6 @@ public class Board {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nom;
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date dateCreation;
 	
 	@OneToMany(mappedBy = "board")
 	private List<Section> sections;

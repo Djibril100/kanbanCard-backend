@@ -32,5 +32,4 @@ public class Section {
 	@OneToMany(mappedBy = "toSection")
 	private List<DeplacementTicket> ticketEntrants;
 
-
 }

@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import fr.istic.kanbancard.entities.DeplacementTicket;
 
 public interface DeplacementTicketRepository extends JpaRepository<DeplacementTicket, Long> {
-	List<DeplacementTicket> findByUtilisateurId(Long utilisateurId);
+	
 }

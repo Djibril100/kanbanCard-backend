@@ -49,13 +49,7 @@ public class Ticket {
 	@JoinTable(name = "ticket_tag", joinColumns = @JoinColumn(name = "ticket_id"), inverseJoinColumns = @JoinColumn(name = "tag_id"))
 	private List<Tag> tags;
 
-	// Utilisateurs assignés à travailler sur le ticket
-    @ManyToMany
-    private List<Utilisateur> utilisateurs;
-    
-    //Liste permettant de suivre tous les mouvements associées à un ticket donné
-    @OneToMany(mappedBy = "ticket")
-    private List<DeplacementTicket> deplacements;
-
+    @ManyToOne
+    private Utilisateur utilisateur;
 
 }
