@@ -93,7 +93,7 @@ public class KanbanCardBackendApplication {
 			sectionServiceInt.sections().forEach(sectionDTO ->{
 				for(UtilisateurDTO userDTO: utilisateurs) {
 					try {
-						ticketServiceInt.saveTicket(sectionDTO.getId(), userDTO.getId(), "Ticket " + UUID.randomUUID().toString().substring(0, 8));
+						ticketServiceInt.saveTicket(sectionDTO.getId(), userDTO.getId(), "Ticket " + UUID.randomUUID().toString().substring(0, 8), null);
 					} catch (SectionOrUtilisateurNotFoundException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -107,7 +107,7 @@ public class KanbanCardBackendApplication {
 			    UtilisateurDTO utilisateurDTO = utilisateurs.get(new Random().nextInt(utilisateurs.size()));
 
 			    try {
-			        ticketServiceInt.saveBugTicket(sectionDTO.getId(), utilisateurDTO.getId(), "Bug Ticket " + UUID.randomUUID().toString().substring(0, 8), "https://example.com/bugtracking/" + UUID.randomUUID().toString().substring(0, 8));
+			        ticketServiceInt.saveBugTicket(sectionDTO.getId(), utilisateurDTO.getId(), "Bug Ticket " + UUID.randomUUID().toString().substring(0, 8), null, "https://example.com/bugtracking/" + UUID.randomUUID().toString().substring(0, 8));
 			    } catch (SectionOrUtilisateurNotFoundException e) {
 			        e.printStackTrace();
 			    }
@@ -119,7 +119,7 @@ public class KanbanCardBackendApplication {
 			    UtilisateurDTO utilisateurDTO = utilisateurs.get(new Random().nextInt(utilisateurs.size()));
 
 			    try {
-			        ticketServiceInt.saveFeatureTicket(sectionDTO.getId(), utilisateurDTO.getId(), "Feature Ticket " + UUID.randomUUID().toString().substring(0, 8), "Release " + UUID.randomUUID().toString().substring(0, 8));
+			        ticketServiceInt.saveFeatureTicket(sectionDTO.getId(), utilisateurDTO.getId(), "Feature Ticket " + UUID.randomUUID().toString().substring(0, 8), null, "Release " + UUID.randomUUID().toString().substring(0, 8));
 			    } catch (SectionOrUtilisateurNotFoundException e) {
 			        e.printStackTrace();
 			    }

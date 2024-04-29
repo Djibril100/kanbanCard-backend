@@ -12,12 +12,12 @@ import fr.istic.kanbancard.exceptions.UtilisateurNotFoundException;
 
 public interface TicketServiceInterface {
 	
-	TicketDTO saveTicket(Long sectionId, Long userId, String titre) throws SectionOrUtilisateurNotFoundException;
-	TicketDTO updateTicket(Long ticketId, Long sectionId, Long userId, String titre) throws SectionOrUtilisateurNotFoundException, TicketNotFoundException;
-	BugTicketDTO saveBugTicket(Long sectionId, Long userId, String titre, String bugTrackingUrl) throws SectionOrUtilisateurNotFoundException;
-	FeatureTicketDTO saveFeatureTicket(Long sectionId, Long userId, String titre, String featureRelease) throws SectionOrUtilisateurNotFoundException;
-	BugTicketDTO updateBugTicket(Long ticketId, Long sectionId, Long userId, String titre, String bugTrackingUrl) throws SectionOrUtilisateurNotFoundException;
-	FeatureTicketDTO updateFeatureTicket(Long ticketId, Long sectionId, Long userId, String titre, String featureRelease) throws SectionOrUtilisateurNotFoundException;
+	TicketDTO saveTicket(Long sectionId, Long userId, String titre, String description) throws SectionOrUtilisateurNotFoundException;
+	TicketDTO updateTicket(Long ticketId, Long sectionId, Long userId, String titre, String description) throws SectionOrUtilisateurNotFoundException, TicketNotFoundException;
+	BugTicketDTO saveBugTicket(Long sectionId, Long userId, String titre, String description, String bugTrackingUrl) throws SectionOrUtilisateurNotFoundException;
+	FeatureTicketDTO saveFeatureTicket(Long sectionId, Long userId, String titre, String description, String featureRelease) throws SectionOrUtilisateurNotFoundException;
+	BugTicketDTO updateBugTicket(Long ticketId, Long sectionId, Long userId, String titre, String description, String bugTrackingUrl) throws SectionOrUtilisateurNotFoundException;
+	FeatureTicketDTO updateFeatureTicket(Long ticketId, Long sectionId, Long userId, String titre, String description, String featureRelease) throws SectionOrUtilisateurNotFoundException;
 	void deleteTicket(Long ticketId);
 	
 	List<TicketDTO> tickets();

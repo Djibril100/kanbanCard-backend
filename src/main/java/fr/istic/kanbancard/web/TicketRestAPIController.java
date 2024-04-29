@@ -35,7 +35,8 @@ public class TicketRestAPIController {
         Long sectionId = ticketDTO.getSectionDTO().getId();
         Long userId = ticketDTO.getUtilisateurDTO().getId();
         String titre = ticketDTO.getTitre();
-        return service.saveTicket(sectionId, userId, titre);
+        String description = ticketDTO.getDescription();
+        return service.saveTicket(sectionId, userId, titre, description);
     }
 
     // Mettre à jour un ticket existant
@@ -46,8 +47,9 @@ public class TicketRestAPIController {
         Long sectionId = ticketDTO.getSectionDTO().getId();
         Long userId = ticketDTO.getUtilisateurDTO().getId();
         String titre = ticketDTO.getTitre();
+        String description = ticketDTO.getDescription();
         ticketDTO.setId(ticketId);
-        return service.updateTicket(ticketId, sectionId, userId, titre);
+        return service.updateTicket(ticketId, sectionId, userId, titre, description);
     }
 
     // Enregistrer un nouveau bug ticket
@@ -57,8 +59,9 @@ public class TicketRestAPIController {
         Long sectionId = bugTicketDTO.getSectionDTO().getId();
         Long userId = bugTicketDTO.getUtilisateurDTO().getId();
         String titre = bugTicketDTO.getTitre();
+        String description = bugTicketDTO.getDescription();
         String bugTrackingUrl = bugTicketDTO.getBugTrackingUrl();
-        return service.saveBugTicket(sectionId, userId, titre, bugTrackingUrl);
+        return service.saveBugTicket(sectionId, userId, titre, description, bugTrackingUrl);
     }
 
     // Enregistrer un nouveau feature ticket
@@ -68,8 +71,9 @@ public class TicketRestAPIController {
         Long sectionId = featureTicketDTO.getSectionDTO().getId();
         Long userId = featureTicketDTO.getUtilisateurDTO().getId();
         String titre = featureTicketDTO.getTitre();
+        String description = featureTicketDTO.getDescription();
         String featureRelease = featureTicketDTO.getFeatureRelease();
-        return service.saveFeatureTicket(sectionId, userId, titre, featureRelease);
+        return service.saveFeatureTicket(sectionId, userId, titre, description, featureRelease);
     }
 
     // Mettre à jour un bug ticket existant
@@ -80,8 +84,9 @@ public class TicketRestAPIController {
         Long sectionId = bugTicketDTO.getSectionDTO().getId();
         Long userId = bugTicketDTO.getUtilisateurDTO().getId();
         String titre = bugTicketDTO.getTitre();
+        String description = bugTicketDTO.getDescription();
         String bugTrackingUrl = bugTicketDTO.getBugTrackingUrl();
-        return service.updateBugTicket(ticketId, sectionId, userId, titre, bugTrackingUrl);
+        return service.updateBugTicket(ticketId, sectionId, userId, titre, description, bugTrackingUrl);
     }
 
     // Mettre à jour un feature ticket existant
@@ -92,8 +97,9 @@ public class TicketRestAPIController {
         Long sectionId = featureTicketDTO.getSectionDTO().getId();
         Long userId = featureTicketDTO.getUtilisateurDTO().getId();
         String titre = featureTicketDTO.getTitre();
+        String description = featureTicketDTO.getDescription();
         String featureRelease = featureTicketDTO.getFeatureRelease();
-        return service.updateFeatureTicket(ticketId, sectionId, userId, titre, featureRelease);
+        return service.updateFeatureTicket(ticketId, sectionId, userId, titre, description, featureRelease);
     }
 
     // Supprimer un ticket

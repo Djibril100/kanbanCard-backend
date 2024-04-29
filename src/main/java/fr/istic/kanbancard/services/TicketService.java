@@ -41,7 +41,7 @@ public class TicketService implements TicketServiceInterface {
 	private KanbanCardMapper mapperService;
 	
 	@Override
-	public TicketDTO saveTicket(Long sectionId, Long userId, String titre)
+	public TicketDTO saveTicket(Long sectionId, Long userId, String titre, String description)
 			throws SectionOrUtilisateurNotFoundException {
 		log.info("Enregistrement d'un nouveau Ticket");
 	    Section section = sectionRepository.findById(sectionId).orElse(null);
@@ -52,6 +52,7 @@ public class TicketService implements TicketServiceInterface {
 	    
 	    Ticket ticket = new Ticket();
 	    ticket.setTitre(titre);
+	    ticket.setDescription(description);
 	    ticket.setDateCreation(new Date());
 	    ticket.setDateEcheance(getDateEcheance(ticket.getDateCreation()));
 	    
@@ -63,7 +64,7 @@ public class TicketService implements TicketServiceInterface {
 	}
 
 	@Override
-	public TicketDTO updateTicket(Long ticketId, Long sectionId, Long userId, String titre)
+	public TicketDTO updateTicket(Long ticketId, Long sectionId, Long userId, String titre, String description)
 			throws SectionOrUtilisateurNotFoundException, TicketNotFoundException {
 		log.info("Mise à jour d'un Ticket");
 	    Ticket ticket = ticketRepository.findById(ticketId)
@@ -76,6 +77,7 @@ public class TicketService implements TicketServiceInterface {
 	        throw new SectionOrUtilisateurNotFoundException("Section ou Utilisateur non trouvés !");
 	    
 	    ticket.setTitre(titre);
+	    ticket.setDescription(description);
 	    ticket.setSection(section);
 	    ticket.setUtilisateur(user);
 	    
@@ -85,7 +87,7 @@ public class TicketService implements TicketServiceInterface {
 	
 
 	@Override
-	public BugTicketDTO saveBugTicket(Long sectionId, Long userId, String titre, String bugTrackingUrl)
+	public BugTicketDTO saveBugTicket(Long sectionId, Long userId, String titre, String description, String bugTrackingUrl)
 			throws SectionOrUtilisateurNotFoundException {
 		log.info("Enregistrement d'un nouveau BugTicket");
 		Section section = sectionRepository.findById(sectionId).orElse(null);
@@ -96,6 +98,7 @@ public class TicketService implements TicketServiceInterface {
 		
 		BugTicket bugTicket = new BugTicket();
 		bugTicket.setTitre(titre);
+		bugTicket.setDescription(description);
 		bugTicket.setDateCreation(new Date());
 		bugTicket.setDateEcheance(getDateEcheance(bugTicket.getDateCreation()));
 	    
@@ -108,7 +111,7 @@ public class TicketService implements TicketServiceInterface {
 	}
 
 	@Override
-	public FeatureTicketDTO saveFeatureTicket(Long sectionId, Long userId, String titre, String featureRelease)
+	public FeatureTicketDTO saveFeatureTicket(Long sectionId, Long userId, String titre, String description, String featureRelease)
 			throws SectionOrUtilisateurNotFoundException {
 		log.info("Enregistrement d'un nouveau FeatureTicket");
 		Section section = sectionRepository.findById(sectionId).orElse(null);
@@ -119,6 +122,7 @@ public class TicketService implements TicketServiceInterface {
 
 	    FeatureRequestTicket featureTicket = new FeatureRequestTicket();
 	    featureTicket.setTitre(titre);
+	    featureTicket.setDescription(description);
 	    featureTicket.setDateCreation(new Date());
 	    featureTicket.setDateEcheance(getDateEcheance(featureTicket.getDateCreation()));
 	    featureTicket.setSection(section);
@@ -130,7 +134,7 @@ public class TicketService implements TicketServiceInterface {
 	}
 
 	@Override
-	public BugTicketDTO updateBugTicket(Long ticketId, Long sectionId, Long userId, String titre, String bugTrackingUrl)
+	public BugTicketDTO updateBugTicket(Long ticketId, Long sectionId, Long userId, String titre, String description, String bugTrackingUrl)
 			throws SectionOrUtilisateurNotFoundException {
 		log.info("Mise à jour d'un BugTicket");
 	    Section section = sectionRepository.findById(sectionId).orElse(null);
@@ -141,6 +145,7 @@ public class TicketService implements TicketServiceInterface {
 	        throw new SectionOrUtilisateurNotFoundException("Section, Utilisateur ou BugTicket non trouvés !");
 
 	    bugTicket.setTitre(titre);
+	    bugTicket.setDescription(description);
 	    bugTicket.setDateCreation(new Date());
 	    bugTicket.setDateEcheance(getDateEcheance(bugTicket.getDateCreation()));
 	    bugTicket.setBugTrackingUrl(bugTrackingUrl);
@@ -152,7 +157,7 @@ public class TicketService implements TicketServiceInterface {
 	}
 
 	@Override
-	public FeatureTicketDTO updateFeatureTicket(Long ticketId, Long sectionId, Long userId, String titre, String featureRelease)
+	public FeatureTicketDTO updateFeatureTicket(Long ticketId, Long sectionId, Long userId, String titre, String description, String featureRelease)
 			throws SectionOrUtilisateurNotFoundException {
 		log.info("Mise à jour d'un FeatureTicket");
 	    Section section = sectionRepository.findById(sectionId).orElse(null);
@@ -163,6 +168,7 @@ public class TicketService implements TicketServiceInterface {
 	        throw new SectionOrUtilisateurNotFoundException("Section, Utilisateur ou FeatureTicket non trouvés !");
 
 	    featureTicket.setTitre(titre);
+	    featureTicket.setDescription(description);
 	    featureTicket.setDateCreation(new Date());
 	    featureTicket.setDateEcheance(getDateEcheance(featureTicket.getDateCreation()));
 	    featureTicket.setSection(section);
